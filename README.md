@@ -16,7 +16,7 @@ pred.subject.RData: Simulated multivariate testing data set list as described in
 
 INTRODUCTION ——————————————
 
-The contents of this folder allow for implementation of the BM-JM estimation and inference, as well as dynamic prediction and predictive accuracy measurement procedures described in "Bayesian multivariate joint modeling of longitudinal, recurrent, and competing risk terminal events in patients with chronic kidney disease". Users can implemente the aforementioned procedures on the attached simulated sample training and testing data set. Detailed instructions on how to perform the aforementioned procedures and visualize results are included in BM_JM_tutorial.R.
+The contents of this folder allow for implementation of the BM-JM estimation and inference, as well as dynamic prediction and predictive accuracy measurement procedures described in "Bayesian multivariate joint modeling of longitudinal, recurrent, and competing risk terminal events in patients with chronic kidney disease". Users can implemente the aforementioned procedures on the attached simulated sample training and testing data sets. Detailed instructions on how to perform the aforementioned procedures and visualize results are included in BM_JM_tutorial.R.
 
 REQUIREMENTS ——————————————
 
