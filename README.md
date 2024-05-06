@@ -10,9 +10,9 @@ BM_JM_prepare_prediction.R : R file containing all the functions needed in BM-JM
 
 BM_JM_measure_prediction_accuracy.R : R file containing functions and codes to calculate dynamic AUC and BS from BM-JM predictions.
 
-dat.long.RData, dat.recurrent.RData, dat.terminal.RData: Simulated multivariate training data set as described in "Bayesian multivariate joint modeling of longitudinal, recurrent, and competing risk terminal events in patients with chronic kidney disease".
+dat.long.RData, dat.recurrent.RData, dat.terminal.RData: Simulated multivariate training data set as described in Section 5 of "Bayesian multivariate joint modeling of longitudinal, recurrent, and competing risk terminal events in patients with chronic kidney disease".
 
-pred.subject.RData: Simulated multivariate testing data set as described in "Bayesian multivariate joint modeling of longitudinal, recurrent, and competing risk terminal events in patients with chronic kidney disease".
+pred.subject.RData: Simulated multivariate testing data set list as described in Section 5 of "Bayesian multivariate joint modeling of longitudinal, recurrent, and competing risk terminal events in patients with chronic kidney disease".
 
 INTRODUCTION ——————————————
 
