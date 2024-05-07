@@ -59,7 +59,7 @@ library(pec)
 ################################################
 # Set working direction
 ################################################
-setwd("~/Desktop/BM-JM codes")
+setwd("~/Desktop/BM-JM codes/Github")
 
 
 ################################################
@@ -140,15 +140,15 @@ coda.samples.wrapper <- function(j)
     model.fit <- jags.model(file = "BM_JM_jags.txt",
                             inits = list(.RNG.name = "base::Wichmann-Hill", .RNG.seed = j), ## to make sure each chain starts from a different set of initial values
                             data = Data, n.chains = 1, n.adapt = 2000)
-    update(model.fit, 3000)
+    update(model.fit, 5000)
     
     coda.samples(model.fit, params,  n.iter = 10000, thin = 5)
   }
   
 # Run JAGS model in parallel
 post.samples <- mclapply(1:n.chains, coda.samples.wrapper,  mc.cores = n.chains)
-
-# Transform BM-JM estimation output into a mcmc list
+# post.samples1 <- post.samples
+# Transform BM-JM estimation output into an MCMC list
 for(ii in 1:length(post.samples)){ 
   post.samples[[ii]] <- post.samples[[ii]][[1]]
 }
@@ -160,9 +160,10 @@ summary(post.samples)
 ###########################################################################
 ###########################################################################
 # 3. Load an independent testing data set, which also includes longitudinal, 
-# recurrent, and two competing-risk terminal outcomes
+#    recurrent, and two competing-risk terminal outcomes
 ###########################################################################
 ###########################################################################
+# Load the testing data set for dynamic prediction
 load("pred.subject.RData")
 
 #################################################################### 
@@ -174,7 +175,7 @@ load("pred.subject.RData")
 ####################################################################
 # Source functions which are needed in the dynamic prediction procedure
 #################################################################### 
-source("BM_JM_prepare_prediction_3.R")
+source("BM_JM_prepare_prediction.R")
 
 
 ################################################################# 
@@ -207,7 +208,7 @@ for (k in 1:n.sample){
 # 5. Measure the accuracy of BM-JM prediction 
 ################################################ 
 ################################################
-source("BM_JM_measure_prediction_accuracy_2.R")
+source("BM_JM_measure_prediction_accuracy.R")
 
 # Dynamic AUC and BS values in different predition time t and prediction time window \Delta t
 AUCst.1
@@ -261,3 +262,4 @@ title(xlab = "Time",ylab=TeX(r'($\pi^{(2)}_{p}(t,s)$)', bold=F), line=2, cex.lab
 segments(xtime, Tstart0.q2.5_2, xtime, Tstart0.q97.5_2, col = "indianred4", lwd = 2)
 segments(xtime-0.02, Tstart0.q2.5_2, xtime+0.02, Tstart0.q2.5_2, col = "indianred4", lwd = 2)
 segments(xtime-0.02, Tstart0.q97.5_2, xtime+0.02, Tstart0.q97.5_2, col = "indianred4", lwd = 2)
+
